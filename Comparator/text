@@ -1,0 +1,31 @@
+difference between Comparable and Comparator in Java and provide some code examples.
+
+Comparable and Comparator are both interfaces in Java that are used to sort objects. However, they are used in slightly different ways.
+
+Comparable is an interface that is used to sort objects in their natural ordering. 
+It contains only one method, compareTo(), which defines the ordering. When you implement the Comparable interface, 
+you need to override the compareTo() method and define the ordering that you want to use. Here's an example:
+
+public class Employee implements Comparable<Employee> {
+    private int id;
+    private String name;
+    private int age;
+    private long salary;
+
+    public Employee(int id, String name, int age, long salary) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    @Override
+    public int compareTo(Employee emp) {
+        //let's sort the employee based on an id in ascending order
+        //returns a negative integer, zero, or a positive integer as this employee id
+        //is less than, equal to, or greater than the specified object.
+        return (this.id - emp.id);
+    }
+
+    //other methods
+}
