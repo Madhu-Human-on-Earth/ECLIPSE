@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- student mark report
+accept rollno, name, marks in 4 subjects  from user.
+then find grade of student based on following info:
+avg			grade
+90-100	A+
+80-89		A
+70-79		B+
+60-69		B
+50-59		C
+40-49		D
+0-39		Fail
+Note:	min marks in each sub is 40
+ -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            background:#66ffff;
+            width: 300px;
+        }
+        output{
+            color: #3300cc;
+        }
+    </style>
+</head>
+<body>
+    <table align="center">
+        <caption><h3>Student Marks Report</h3></caption>
+        <tr>
+            <td><label>RollNo</label></td>
+            <td><input type="text" id="rno"></td>
+        </tr>
+
+        <tr>
+            <td><label>Name</label></td>
+            <td><input type="text" id="sna"></td>
+        </tr>
+
+        <tr>
+            <td> <label>Marks in:</label> </td>
+        </tr>
+        <tr>
+            <td><label>html</label></td>
+            <td><input type="text" id="html"></td>
+        </tr>
+
+        <tr>
+            <td><label>CSS</label></td>
+            <td><input type="text" id="css"></td>
+        </tr>
+
+        <tr>
+            <td><label>JavaScript</label></td>
+            <td><input type="text" id="js"></td>
+        </tr>
+
+        <tr>
+            <td><label>ReactjS</label></td>
+            <td><input type="text" id="react"></td>
+        </tr>
+
+        <tr align="center">
+            <td colspan="2">
+                <button onclick="getResult()">Get Result</button>
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <output id="total"></output><br>
+                <output id="average"></output><br>
+                <output id="grade"></output><br>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function getResult()
+        {
+            let hm,cs,jm,tot,avg,grd,rm;
+            hm=+html.value;
+            cs=+css.value;
+            jm=+js.value;
+            rm=+react.value;
+            tot=hm+cs+jm+rm;
+            avg=tot/4;
+            if(hm>39 && cs >39 && jm>39 &&rm>39)
+            {
+                //pass
+                if(avg>=90)
+                {
+grd="A+";
+                }
+                else if(avg>=80)
+                {
+grd="A";
+
+                }
+                else if(avg>=70)
+                {
+                    grd="B+";
+                }
+                else if(avg>=60)
+                {
+                    grd="B";
+                }
+                else if(avg>=50)
+                {
+                    grd="C"
+                }
+                else{
+                    grd="D";
+                }
+            }
+            else{
+                grd="FAIL";
+            }
+//DISPALY OUTPUT
+total.value="Total MARKS   :"+tot;
+average.value="AVERAGE  :"+avg;
+grade.value="Grade   :"+grd;
+
+
+        }
+    </script>
+</body>
+</html>
